@@ -13,7 +13,7 @@
     (function () {
         var msg = "欢迎来到这里，这里有惊喜！欢迎来到这里，这里有惊喜！";
         var size = 24;
-        var circleY = 2.5; var circleX = 6;
+        var circleY = 2.8; var circleX = 6;
         var letter_spacing = 5;
         var diameter = 6;
         var rotation = 0.2;
@@ -26,8 +26,8 @@
                 b = document.compatMode && document.compatMode != "BackCompat" ? document.documentElement : document.body,
                 mouse = function (e) {
                     e = e || window.event;
-                    ymouse = !isNaN(e.pageY) ? e.pageY : e.clientY; // y-position
-                    xmouse = !isNaN(e.pageX) ? e.pageX : e.clientX; // x-position
+                    ymouse = !isNaN(e.pageY) ? e.pageY : e.clientY;
+                    xmouse = !isNaN(e.pageX) ? e.pageX : e.clientX;
                 },
                 makecircle = function () { // rotation/positioning
                     if (init.nopy) {
@@ -41,7 +41,7 @@
                         d.left = Math.round(x[i] + a * Math.cos((currStep + i) / letter_spacing) * circleX) + 'px';
                     };
                 },
-                drag = function () { // makes the resistance
+                drag = function () {
                     y[0] = Y[0] += (ymouse - Y[0]) * speed;
                     x[0] = X[0] += (xmouse- X[0]) * speed;
                     for (var i = n; i > 0; --i) {
@@ -50,7 +50,7 @@
                     };
                     makecircle();
                 },
-                init = function () { // appends message divs, & sets initial values for positioning arrays
+                init = function () {
                     if (!isNaN(window.pageYOffset)) {
                         ymouse += window.pageYOffset;
                         xmouse += window.pageXOffset;
